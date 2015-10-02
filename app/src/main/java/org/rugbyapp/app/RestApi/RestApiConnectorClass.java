@@ -63,7 +63,7 @@ public class RestApiConnectorClass {
         return list;
     }
 
-    public static <T> T read(String fetchUrl, String ID, Class<T> classType){
+    public static <T> T read(String fetchUrl, Long ID, Class<T> classType){
         try
         {
             JsonParser jsonParser = new JsonParser();

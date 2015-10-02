@@ -14,22 +14,15 @@
             android:layout_gravity="center_horizontal"
             android:weightSum="1">
         <ImageView
-                android:layout_width="100dp"
-                android:layout_height="161dp"
+                android:layout_width="150dp"
+                android:layout_height="128dp"
                 android:id="@+id/imageView"
-                android:layout_weight="0.43"
                 android:contentDescription="@string/teamLogo"/>
         <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="79dp"
-                android:layout_height="fill_parent"
-                android:layout_weight="0.33">
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/team_Name"
-                    android:id="@+id/textView"/>
+                android:layout_width="match_parent"
+                android:layout_height="168dp"
+                android:weightSum="1">
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -41,18 +34,53 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="@string/coach_name"
-                    android:id="@+id/textView3"/>
+                    android:id="@+id/coachNameTxt"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Home Ground"
+                    android:id="@+id/homeGroudTxt"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="home"
+                    android:id="@+id/HomeGrndNameTxt"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="league"
+                    android:id="@+id/leagueTxt"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="small"
+                    android:id="@+id/leagueView"
+                    />
         </LinearLayout>
     </LinearLayout>
     <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/team_Name"
+            android:gravity="left"
+            android:id="@+id/teamNameTxt"/>
+    <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/teamPlayers"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
             android:id="@+id/textView4"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:background="@color/background_floating_material_dark"/>
     <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/listView"/>
+            android:id="@+id/playersList"/>
 </LinearLayout>

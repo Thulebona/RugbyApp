@@ -18,7 +18,8 @@ import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
-
+    List<String> mylist = new ArrayList<String>();
+    List<Long> idList = new ArrayList<Long>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,9 +27,11 @@ public class MainActivity extends ActionBarActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        List<String> mylist = new ArrayList<String>();
-        for(TeamProfile teamProfile: RestApiConnectorClass.readAll(UrlPath.TeamsProfileLinks.GETALL.trim()))
-               mylist.add(teamProfile.getTeamName());
+
+        for(TeamProfile teamProfile: RestApiConnectorClass.readAll(UrlPath.TeamsProfileLinks.GETALL.trim())) {
+            mylist.add(teamProfile.getTeamName());
+            idList.add(teamProfile.getId());
+        }
 
         ListAdapter teamAd = new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,mylist);
         ListView myList = (ListView) findViewById(R.id.LogRankingListView);
@@ -36,6 +39,7 @@ public class MainActivity extends ActionBarActivity {
         myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Team_profile.Ids = idList.get(i);
                 Intent team_profile = new Intent(MainActivity.this, Team_profile.class);
                 startActivity(team_profile);
             }
@@ -56,12 +60,9 @@ public class MainActivity extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }
